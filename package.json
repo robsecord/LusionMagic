@@ -1,0 +1,45 @@
+{
+  "name": "lusion-magic",
+  "version": "0.1.0",
+  "description": "Lusion Magic Electron App",
+  "author": "Rob Secord",
+  "main": "public/electron.js",
+  "build": {
+    "appId": "lusion.magic"
+  },
+  "homepage": "./",
+  "dependencies": {
+    "cross-env": "^7.0.0",
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "electron": "^7.1.10",
+    "wait-on": "^4.0.0"
+  },
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "build": "npm run react-build",
+    "start": "ELECTRON_IS_DEV=0 electron ./build/electron.js",
+    "dev": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && ELECTRON_IS_DEV=1 electron .\""
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
