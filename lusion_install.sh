@@ -1,19 +1,32 @@
 #!/usr/bin/env bash
 
+echo "LusionMagic: Updating System Sources.."
+sudo apt update
+sudo apt-get update
+
+echo "LusionMagic: Upgrading System Dependencies.."
+sudo apt-get upgrade -y 2>&1
+
 # Install Node 12.x
 #curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
 #sudo apt-get install -y nodejs
+echo "LusionMagic: Downloading NodeJS.."
 wget https://nodejs.org/dist/latest-v12.x/node-v12.14.1-linux-armv7l.tar.gz
+echo "LusionMagic: Extracting NodeJS.."
 tar -xzf node-v12.14.1-linux-armv7l.tar.gz
+echo "LusionMagic: Moving NodeJS.."
 sudo cp -R node-v12.14.1-linux-armv7l/* /usr/local/
 
 # Install GIT
-sudo apt install -y git
+echo "LusionMagic: Installing GIT.."
+sudo apt-get install -y git
 
 # Install PM2
+echo "LusionMagic: Installing PM2.."
 sudo npm install -y -g pm2
 
 # Cleanup
+echo "LusionMagic: Cleaning up after install.."
 rm -rf node-v*
 #sudo apt autoremove --silent
 
